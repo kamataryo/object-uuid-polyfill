@@ -9,6 +9,9 @@ declare global {
 const ObjectIdMap = new WeakMap();
 
 Object.defineProperty(Object.prototype, "__id", {
+  set(id: string) {
+    ObjectIdMap.set(this, id);
+  },
   get() {
     const objectId = ObjectIdMap.get(this);
     if (objectId) {
